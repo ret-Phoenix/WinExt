@@ -31,6 +31,28 @@ namespace WinExt.ScreenManage
         }
 
         /// <summary>
+        /// Сделать снимкок экрана.
+        /// </summary>
+        /// <param name="fileName">Строка - имя файла снимка. Возможны расширения: jpg, png</param>
+        /// <param name="screenNumber">Число - Номер экрана, снимок которого надо сделать</param>
+        [ContextMethod("СделатьСнимок", "MakeScreenshot")]
+        public void MakeScreenshot(string fileName, int screenNumber = 0)
+        {
+            var screen = System.Windows.Forms.Screen.AllScreens[screenNumber];
+            Bitmap printscreen = new Bitmap(screen.Bounds.Width, screen.Bounds.Height);
+            Graphics graphics = Graphics.FromImage(printscreen as Image);
+            graphics.CopyFromScreen(0, 0, 0, 0, printscreen.Size);
+
+            var fileType = System.Drawing.Imaging.ImageFormat.Png;
+            string ext = System.IO.Path.GetExtension(fileName);
+            if (ext.ToLower() == ".jpg")
+            {
+                fileType = System.Drawing.Imaging.ImageFormat.Jpeg;
+            }
+            printscreen.Save(fileName, fileType);
+        }
+
+        /// <summary>
         /// Найти на экране фрагмент из файла
         /// </summary>
         /// <param name="fragmentFileName">Путь к файлу с искомым фрагментом</param>
