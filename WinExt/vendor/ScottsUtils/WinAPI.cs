@@ -86,6 +86,10 @@ namespace ScottsUtils
         [DllImport("user32.dll")]
         public static extern int GetWindowTextLength(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        // public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+        public static extern int GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
         public const uint TOKEN_ADJUST_PRIVILEGES = 0x20;

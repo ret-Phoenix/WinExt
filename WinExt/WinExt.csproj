@@ -16,12 +16,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\portable\OneScript\lib\WinExt\bin\</OutputPath>
+    <OutputPath>obj\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>..\..\..\portable\OneScript\lib\WinExt\bin\WinExt.xml</DocumentationFile>
+    <DocumentationFile>obj\Debug\WinExt.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -59,6 +59,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExecutableFileInfo.cs" />
     <Compile Include="KeySenders\MSSendKeys.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="ScreenManage\ImageWrapper.cs" />

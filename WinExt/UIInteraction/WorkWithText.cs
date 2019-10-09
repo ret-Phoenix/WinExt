@@ -22,6 +22,14 @@ namespace WinExt.UIInteraction
             return uia.GetModuleText();
         }
 
+        [ContextMethod("ПолучитьВыделенныйТекст")]
+        public string GetSelectedText()
+        {
+            var uia = new UIAuto();
+            return uia.GetSelectedText();
+        }
+
+
         [ContextMethod("ЗапомнитьТекущееОкно")]
         public void GetLinkToCurWindow()
         {

@@ -17,6 +17,21 @@ namespace WinExt
             return new MSSendKeys();
         }
 
+        [ContextMethod("ОчиститьМодификаторы")]
+        public void ClearModifiers()
+        {
+            var kShift = (uint)WinAPI.KeyCode.Shift;
+            var kAlt = (uint)WinAPI.KeyCode.Alt;
+            var kCtrl = (uint)WinAPI.KeyCode.Control;
+            var lWin = (uint)WinAPI.KeyCode.LWin;
+
+            ScottsUtils.Keys.ClearModifiers(ref kShift);
+            ScottsUtils.Keys.ClearModifiers(ref kAlt);
+            ScottsUtils.Keys.ClearModifiers(ref kCtrl);
+            ScottsUtils.Keys.ClearModifiers(ref lWin);
+
+        }
+
         /// <summary>
         /// Послать нажатия клавиш. Правила: https://docs.microsoft.com/ru-ru/dotnet/api/system.windows.forms.sendkeys?view=netframework-4.7
         /// </summary>
@@ -24,13 +39,7 @@ namespace WinExt
         [ContextMethod("ПослатьКлавиши", "SendKeys")]
         public void OriginalSendKeys(string keys)
         {
-            var kShift = (uint)WinAPI.KeyCode.Shift;
-            var kAlt = (uint)WinAPI.KeyCode.Alt;
-            var kCtrl = (uint)WinAPI.KeyCode.Control;
-
-            ScottsUtils.Keys.ClearModifiers(ref kShift);
-            ScottsUtils.Keys.ClearModifiers(ref kAlt);
-            ScottsUtils.Keys.ClearModifiers(ref kCtrl);
+            ClearModifiers();
 
             SendKeys.SendWait(keys);
         }
@@ -130,6 +139,14 @@ namespace WinExt
         {
             PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, true, false, false);
             PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetT, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, false, true, false);
+        }
+
+        [ContextMethod("ПослатьCtrlL", "SendCtrlL")]
+        public void SendCtrlL()
+        {
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetL, true, false, false);
             PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, false, true, false);
         }
 

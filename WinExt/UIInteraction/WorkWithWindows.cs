@@ -1,10 +1,10 @@
 ﻿using ScottsUtils;
+using ScriptEngine.HostedScript.Library;
 using ScriptEngine.Machine;
 using ScriptEngine.Machine.Contexts;
 using System;
+using System.Diagnostics;
 using System.Windows.Automation;
-using System.Windows.Forms;
-
 
 namespace WinExt.UIInteraction
 {
@@ -39,5 +39,17 @@ namespace WinExt.UIInteraction
 
             return ScottsUtils.SwitchToWindow.Switch(WinTitle);
         }
+
+        [ContextMethod("ИдПроцессаТекущегоОкна", "ActiveWindowsProccessID")]
+        public IValue ActiveWindowsProccessID()
+        {
+            IntPtr windowPointer = WinAPI.GetForegroundWindow();
+            uint procId = 0;
+
+            int pID = WinAPI.GetWindowThreadProcessId(windowPointer, out procId);
+
+            return ValueFactory.Create(procId);
+        }
+
     }
 }
