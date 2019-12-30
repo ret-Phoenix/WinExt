@@ -1,9 +1,7 @@
 ﻿using ScottsUtils;
-using ScriptEngine.HostedScript.Library;
 using ScriptEngine.Machine;
 using ScriptEngine.Machine.Contexts;
 using System;
-using System.Diagnostics;
 using System.Windows.Automation;
 
 namespace WinExt.UIInteraction
@@ -50,6 +48,5 @@ namespace WinExt.UIInteraction
 
             return ValueFactory.Create(procId);
         }
-
     }
 }

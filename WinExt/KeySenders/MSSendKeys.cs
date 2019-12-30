@@ -175,5 +175,38 @@ namespace WinExt
             PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, false, true, false);
         }
 
+        [ContextMethod("ПослатьCtrlAltM", "SendCtrlAltM")]
+        public void SendCtrlAltM()
+        {
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Alt, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetM, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, false, true, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Alt, false, true, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetM, false, true, false);
+        }
+
+        [ContextMethod("ПослатьCtrlAltO", "SendCtrlAltO")]
+        public void SendCtrlAltO()
+        {
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Alt, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetO, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, false, true, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Alt, false, true, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetO, false, true, false);
+        }
+
+        [ContextMethod("ПослатьCtrlAltZ", "SendCtrlAltZ")]
+        public void SendCtrlAltZ()
+        {
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Alt, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetZ, true, false, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Control, false, true, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.Alt, false, true, false);
+            PressKeyVK(ScottsUtils.WinAPI.KeyCode.LetZ, false, true, false);
+        }
+
     }
 }
